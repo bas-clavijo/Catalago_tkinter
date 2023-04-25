@@ -1,5 +1,5 @@
 import tkinter as tk
-
+from client.gui_app import Frame
 
 
 
@@ -8,7 +8,11 @@ def main():
     root.title('Catalogo de peliculas')
     root.iconbitmap('img/logo.ico')
     root.resizable(0,0)
-    root.mainloop()
+
+    app = Frame(root= root)
+
+
+    app.mainloop()
 
 if __name__ == '__main__':
     main()
