@@ -6,8 +6,12 @@ def barra_menu(root):
     root.config(menu = barra_menu, width=300, height=300)
 
     #Se crean los objetos de la barra menu
-    menu_inicio = tk.Menu(barra_menu)
+    menu_inicio = tk.Menu(barra_menu, tearoff=0)
     barra_menu.add_cascade(label='Inicio', menu= menu_inicio)
+
+    menu_inicio.add_command(label='Crear registro en DB')
+    menu_inicio.add_command(label='Eliminar registro en DB')
+    menu_inicio.add_command(label='Salir', command=root.destroy)
 
 
 
