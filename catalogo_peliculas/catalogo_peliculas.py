@@ -1,5 +1,5 @@
 import tkinter as tk
-from client.gui_app import Frame
+from client.gui_app import Frame, barra_menu
 
 
 
@@ -8,6 +8,8 @@ def main():
     root.title('Catalogo de peliculas')
     root.iconbitmap('img/logo.ico')
     root.resizable(0,0)
+    
+    barra_menu(root)
 
     app = Frame(root= root)
 
