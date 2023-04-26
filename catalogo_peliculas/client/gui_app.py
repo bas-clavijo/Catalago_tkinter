@@ -50,17 +50,20 @@ class Frame(tk.Frame):
         self.label_genero.grid(row=2, column=0, padx=10, pady=10)
 
         #Entrys de cada campo(Nombre)
-        self.entry_nombre = tk.Entry(self)
+        self.mi_nombre = tk.StringVar()
+        self.entry_nombre = tk.Entry(self, textvariable= self.mi_nombre)
         self.entry_nombre.config(width=50,font= ('Arial', 12))
         self.entry_nombre.grid(row=0, column=1, padx=10, pady=10, columnspan=2)
 
         #Entry para duracion
-        self.entry_duracion = tk.Entry(self)
+        self.mi_duracion = tk.StringVar()
+        self.entry_duracion = tk.Entry(self, textvariable= self.mi_duracion)
         self.entry_duracion.config(width=50,font= ('Arial', 12))
         self.entry_duracion.grid(row=1, column=1, padx=10, pady=10, columnspan=2)
 
         #Entry para genero
-        self.entry_genero = tk.Entry(self)
+        self.mi_genero = tk.StringVar()
+        self.entry_genero = tk.Entry(self, textvariable= self.mi_genero)
         self.entry_genero.config(width=50,font= ('Arial', 12))
         self.entry_genero.grid(row=2, column=1, padx=10, pady=10, columnspan=2)
 
@@ -77,13 +80,19 @@ class Frame(tk.Frame):
         self.boton_guardar.grid(row=4, column=1, padx=10, pady=10)
 
         #Botones(Cancelar)
-        self.boton_cancelar = tk.Button(self, text='Cancelar')
+        self.boton_cancelar = tk.Button(self, text='Cancelar',command= self.deshabilitar_campos)
         self.boton_cancelar.config(width=20, font=('Arial', 12, 'bold'), 
                         fg='#DAD5D6', bg='#DB152E', cursor='hand2', activebackground='#E15370')
         self.boton_cancelar.grid(row=4, column=2, padx=10, pady=10)
 
     #Funcion para habilitar los campos
     def habilitar_campos(self):
+        #se limpian los campos
+        self.mi_nombre.set('')
+        self.mi_duracion.set('')
+        self.mi_genero.set('')
+        
+        # se habilitan los entry
         self.entry_nombre.config(state='normal')
         self.entry_duracion.config(state='normal')
         self.entry_genero.config(state='normal')
@@ -95,6 +104,12 @@ class Frame(tk.Frame):
     
     #Funcion para deshabilitar los campos
     def deshabilitar_campos(self):
+        #se limpian los campos
+        self.mi_nombre.set('')
+        self.mi_duracion.set('')
+        self.mi_genero.set('')
+
+        #se deshabilitan los entry
         self.entry_nombre.config(state='disabled')
         self.entry_duracion.config(state='disabled')
         self.entry_genero.config(state='disabled')
