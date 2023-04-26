@@ -28,8 +28,9 @@ class Frame(tk.Frame):
         self.root = root
         self.pack()
         #self.config(bg='green')
-
+    #se habilitan funciones del sistema
         self.campos_pelicula()
+        self.deshabilitar_campos()
 
     #Funcion campos de peliculas
     def campos_pelicula(self):
@@ -64,7 +65,7 @@ class Frame(tk.Frame):
         self.entry_genero.grid(row=2, column=1, padx=10, pady=10, columnspan=2)
 
         #Botones(Nuevo)
-        self.boton_nuevo = tk.Button(self, text='Nuevo')
+        self.boton_nuevo = tk.Button(self, text='Nuevo', command= self.habilitar_campos)
         self.boton_nuevo.config(width=20, font=('Arial', 12, 'bold'), 
                         fg='#DAD5D6', bg='#158645', cursor='hand2', activebackground='#35BD6F')
         self.boton_nuevo.grid(row=4, column=0, padx=10, pady=10)
@@ -83,7 +84,14 @@ class Frame(tk.Frame):
 
     #Funcion para habilitar los campos
     def habilitar_campos(self):
-        pass
+        self.entry_nombre.config(state='normal')
+        self.entry_duracion.config(state='normal')
+        self.entry_genero.config(state='normal')
+
+        #se habilitan los botones
+        self.boton_guardar.config(state='normal')
+        self.boton_cancelar.config(state='normal')
+
     
     #Funcion para deshabilitar los campos
     def deshabilitar_campos(self):
