@@ -117,3 +117,7 @@ class Frame(tk.Frame):
         #se deshabilitan los botones
         self.boton_guardar.config(state='disabled')
         self.boton_cancelar.config(state='disabled')
+
+    #Funcion para guardar datos
+    def guardar_datos():
+        pass
