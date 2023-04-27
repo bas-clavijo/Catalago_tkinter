@@ -112,6 +112,7 @@ class Frame(tk.Frame):
     #Funcion para deshabilitar los campos
     def deshabilitar_campos(self):
         #se limpian los campos
+        self.id_pelicula = None
         self.mi_nombre.set('')
         self.mi_duracion.set('')
         self.mi_genero.set('')
@@ -196,7 +197,7 @@ class Frame(tk.Frame):
             self.duracion_pelicula = self.tabla.item(
                 self.tabla.selection())['values'][1]
             self.genero_pelicula = self.tabla.item(
-                self.tabla.selection())['values'][0]
+                self.tabla.selection())['values'][2]
             
             self.habilitar_campos()
 
