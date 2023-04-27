@@ -216,6 +216,7 @@ class Frame(tk.Frame):
 
             #Actualizacion de la tabla al momento de eliminar registro
             self.tabla_peliculas()
+            self.id_pelicula = None
         except:
             titulo = 'Eliminar un registro'
             mensaje = 'No ha seleccionado ningun registro'
