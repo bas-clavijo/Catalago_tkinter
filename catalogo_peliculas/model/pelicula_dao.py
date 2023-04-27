@@ -1,4 +1,5 @@
 from .conexion_db import ConexionDB
+from tkinter import messagebox
 
 
 #Creacion de tablas
@@ -15,15 +16,31 @@ def crear_tabla():
         PRIMARY KEY(id_pelicula AUTOINCREMENT)
     )
     '''
+    try:
+        #se ejecuta la tabla
+        conexion.cursor.execute(sql)
+        conexion.cerrar()
+        titulo = 'Crear registro'
+        mensaje = 'Se ha creado la tabla en la base de datos'
+        messagebox.showinfo(titulo, mensaje)
+    except:
+        titulo = 'Crear registro'
+        mensaje = 'La tabla ya esta creada'
+        messagebox.showwarning(titulo, mensaje)
 
-    #se ejecuta la tabla
-    conexion.cursor.execute(sql)
-    conexion.cerrar()
 
 #Borrar tablas
 def borrar_tabla():
     conexion = ConexionDB()
 
     sql = 'DROP TABLE peliculas'
-    conexion.cursor.execute(sql)
-    conexion.cerrar()
+    try:
+        conexion.cursor.execute(sql)
+        conexion.cerrar()
+        titulo = 'Borrar registro'
+        mensaje = 'Se ha borrado la tabla en la base de datos'
+        messagebox.showinfo(titulo, mensaje)
+    except:
+        titulo = 'Borrar registro'
+        mensaje = 'No se ha encontrado ninguna tabla en la base de datos'
+        messagebox.showerror(titulo, mensaje)
