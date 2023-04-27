@@ -57,17 +57,17 @@ class Pelicula:
     def __str__(self):
         return f'Pelicula[{self.nombre}, {self.duracion}, {self.genero}]'
 
-    #funcion para guardar datos 
-    def guardar(pelicula):
-        conexion = ConexionDB()
+#funcion para guardar datos 
+def guardar(pelicula):
+    conexion = ConexionDB()
 
 
-        sql = f"""INSERT INTO peliculas(nombre, duracion, genero)
-        VALUES('{pelicula.nombre}', '{pelicula.duracion}', '{pelicula.genero}')"""  
-        try:
-            conexion.cursor.execute(sql) 
-            conexion.cerrar()
-        except:
-            titulo = 'Conexion al registro'
-            mensaje = 'La tabla "Peliculas" no esta creada en la base de datos'
-            messagebox.showerror(titulo, mensaje)    
+    sql = f"""INSERT INTO peliculas(nombre, duracion, genero)
+    VALUES('{pelicula.nombre}', '{pelicula.duracion}', '{pelicula.genero}')"""  
+    try:
+        conexion.cursor.execute(sql) 
+        conexion.cerrar()
+    except:
+        titulo = 'Conexion al registro'
+        mensaje = 'La tabla "Peliculas" no esta creada en la base de datos'
+        messagebox.showerror(titulo, mensaje)    

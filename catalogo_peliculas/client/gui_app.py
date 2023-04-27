@@ -3,6 +3,7 @@ from tkinter import ttk
 from model.pelicula_dao import crear_tabla,borrar_tabla
 from model.pelicula_dao import Pelicula, guardar
 
+
 #Funcion Barra menu
 def barra_menu(root):
     barra_menu = tk.Menu(root)
