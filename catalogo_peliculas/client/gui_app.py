@@ -149,6 +149,13 @@ class Frame(tk.Frame):
         self.tabla = ttk.Treeview(self, column= ('Nombre','Duracion', 'Genero'))
         self.tabla.grid(row=4, column=0, columnspan=4)
 
+        #Scrollbar para la tabla si excede 10 registro
+        self.scroll = ttk.Scrollbar(self, orient= 'vertical', command= self.tabla.yview)
+        #orientacion de la scrollbar
+        self.scroll.grid(row=4, column=4)
+        #configuracion de la tabla
+        self.tabla.configure(yscrollcommand= self.scroll.set)
+
         #Creacion del encabezado de la tabla
         self.tabla.heading('#0', text='ID')
         self.tabla.heading('#1', text='NOMBRE')
