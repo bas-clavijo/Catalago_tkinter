@@ -147,12 +147,12 @@ class Frame(tk.Frame):
         #se revierte el orden de la lista 
         self.lista_peliculas.reverse()
         self.tabla = ttk.Treeview(self, column= ('Nombre','Duracion', 'Genero'))
-        self.tabla.grid(row=4, column=0, columnspan=4)
+        self.tabla.grid(row=4, column=0, columnspan=4, sticky= 'nse')
 
         #Scrollbar para la tabla si excede 10 registro
         self.scroll = ttk.Scrollbar(self, orient= 'vertical', command= self.tabla.yview)
         #orientacion de la scrollbar
-        self.scroll.grid(row=4, column=4)
+        self.scroll.grid(row=4, column=4, sticky= 'nse')
         #configuracion de la tabla
         self.tabla.configure(yscrollcommand= self.scroll.set)
 
