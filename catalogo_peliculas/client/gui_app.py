@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk 
 from model.pelicula_dao import crear_tabla,borrar_tabla
+from model.pelicula_dao import Pelicula, guardar
 
 #Funcion Barra menu
 def barra_menu(root):
@@ -123,6 +124,15 @@ class Frame(tk.Frame):
 
     #Funcion para guardar datos
     def guardar_datos(self):
+
+        pelicula = Pelicula(
+            self.mi_nombre.get(),
+            self.mi_duracion.get(),
+            self.mi_genero.get()
+        )
+        #Insercion a la base de datos 
+        guardar(pelicula)
+
 
         #Deshabilitar campos
         self.deshabilitar_campos()
