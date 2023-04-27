@@ -74,7 +74,7 @@ class Frame(tk.Frame):
         self.boton_nuevo.grid(row=4, column=0, padx=10, pady=10)
 
         #Botones(Guardar)
-        self.boton_guardar = tk.Button(self, text='Guardar')
+        self.boton_guardar = tk.Button(self, text='Guardar', command=self.guardar_datos)
         self.boton_guardar.config(width=20, font=('Arial', 12, 'bold'), 
                         fg='#DAD5D6', bg='#1658A2', cursor='hand2', activebackground='#3586DF')
         self.boton_guardar.grid(row=4, column=1, padx=10, pady=10)
@@ -119,5 +119,7 @@ class Frame(tk.Frame):
         self.boton_cancelar.config(state='disabled')
 
     #Funcion para guardar datos
-    def guardar_datos():
-        pass
+    def guardar_datos(self):
+
+        #Deshabilitar campos
+        self.deshabilitar_campos()
